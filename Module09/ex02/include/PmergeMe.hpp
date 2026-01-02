@@ -13,40 +13,38 @@
 
 class PmergeMe {
 
-	public :
-		PmergeMe();
-		PmergeMe(const PmergeMe& other);
-		PmergeMe& operator=(const PmergeMe& other);
-		~PmergeMe();
+public :
+        PmergeMe();
+        PmergeMe(const PmergeMe& other);
+        PmergeMe& operator=(const PmergeMe& other);
+        ~PmergeMe();
 
-		std::deque<int> getTabDeque();
-		std::vector<int> getTabVect();
+        std::deque<int> getTabDeque();
+        std::vector<int> getTabVect();
 
-		bool isNumber(std::string &input);
-		void parseInput(int ac, char **av);
-		void sort2Nbr(int &a, int &b);
+        void parseInput(int ac, char **av);
+        void vectSort();
+        void dequSort();
 
-		// Pour vector
-		void vectSort();
+    private :
+        std::deque<int> _tabDeque;
+        std::vector<int> _tabVect;
 
-		bool vectIsSorted(std::vector<int> &vTab);
+        bool isNumber(std::string &input);
+        void sort2Nbr(int &a, int &b);
 
-		int binaryInsertion(int &value, std::vector<int> &vTab);
-		unsigned int Jacobsthal(unsigned int n);
-		std::vector<int> orderJacobsthal(std::vector<int> &insertTab);
+        unsigned int Jacobsthal(unsigned int n);
+        std::vector<int> generateJacobsthalSequence(size_t n);
 
-		// Pour deque
-		void dequSort();
+        // vect
+        bool vectIsSorted(std::vector<int> &vTab);
+        int binaryInsertion(int &value, std::vector<int> &vTab);
+        std::vector<int> sortVectRecursive(std::vector<int> &currentTab);
 
-		bool dequeIsSorted(std::deque<int> &vTab); 
-
-		int binaryInsertionD(int &value, std::deque<int> &dTab);
-		unsigned int JacobsthalD(unsigned int n);
-		std::deque<int> orderJacobsthalD(std::deque<int> &insertTab);
-
-	private :
-		std::deque<int> _tabDeque;
-		std::vector<int> _tabVect;
+        // deque
+        bool dequeIsSorted(std::deque<int> &vTab); 
+        int binaryInsertionD(int &value, std::deque<int> &dTab);
+        std::deque<int>  sortDequeRecursive(std::deque<int> &currentTab);
 };
 
 #endif
